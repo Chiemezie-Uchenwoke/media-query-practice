@@ -1,0 +1,147 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+.parent{
+  text-align: center;
+}
+
+.parent img{
+  width: 150px;
+  border-radius: 50%;
+}
+
+.cards{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-child{
+  width: 300px;
+  background-color: white;
+  color: black;
+  height: 300px;
+  margin: 2rem auto;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.grid-cards{
+  margin: 2rem;
+}
+
+/* In grids, you define the height on the parent and not on the children */
+.parent-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 2rem;
+  height: 120rem;
+  justify-items: center;
+}
+
+.grid-child{
+  background-color: white;
+  width: 110%;/* This value can be changed to reduce the width of the grid items */
+  color: black;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0rem;
+  font-size: 2rem;
+}
+
+/*GRID CENTER VALUES 
+Between flex and grid, align-items stays the same but for some reason justify-content becomes justify-items for grids.
+
+The place-items property is shorthand for align-items and justify-items.
+
+The place-self property is shorthand for align-self and justify-self. */
+
+
+  @media (max-width: 480px){
+    body{
+      background-color: lightsalmon;
+      color: aliceblue;
+    }
+  }
+
+  @media (min-width: 481px){
+    body{
+      background-color: powderblue;
+    }
+
+    .grid-child{
+      width: 80%;
+    }
+  }
+
+  @media (min-width: 600px){
+    .cards{
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .parent-grid{
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-child{
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 992px){
+    body{
+      background-color: rgb(211, 211, 211);
+    }
+
+    h1{
+        font-size: 60px;
+        text-transform: capitalize;
+        padding: 1rem 0rem;
+    }
+
+    .flex-child{
+      width: 350px;
+      padding-top: 1rem;
+    }
+
+    .parent-grid{
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%; /* This value can be changed to reduce the width of the grid items */
+      height: 35rem;
+      grid-auto-rows: 10rem;
+    }
+
+    .grid-child{
+      width: 100%;
+      height: 100%;
+      font-size: 3rem;
+    }
+
+    .first{
+      grid-row: span 2;
+    }
+
+    .sixth{
+      grid-column: span 3;
+    }
+
+  }
+
+  @media (min-width: 1601px){
+    body{
+      background-color: seagreen;
+    }
+  }
